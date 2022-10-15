@@ -1,0 +1,8 @@
+hello
+result.txt
+build/
+__pycache__/
+venv/
+*.so
+*.o
+_*.c
