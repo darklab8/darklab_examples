@@ -21,7 +21,6 @@ def fizzbuzz(n):
         elif number % 5 == 0:
             yield b"Buzz"
         else:
-            # yield bin(number)
             yield str(number).encode()
 
 @time_measure
