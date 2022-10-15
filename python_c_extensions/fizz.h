@@ -1,1 +1,1 @@
-int pi_approx(int n);
+char* fizz(int n);

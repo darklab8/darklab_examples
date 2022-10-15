@@ -13,16 +13,25 @@ def time_measure(func):
     return wrapper
 
 def fizzbuzz(n):
-    return ("Fizz" * (not _ % 3) + "Buzz" *
-            (not _ % 5) or f"{_ + 1}" for _ in range(n))
+    for number in range(1,n+1):
+        if number % 3 == 0 and number % 5 == 0:
+            yield b"FizzBuzz"
+        elif number % 3 == 0:
+            yield b"Fizz"
+        elif number % 5 == 0:
+            yield b"Buzz"
+        else:
+            # yield bin(number)
+            yield str(number).encode()
 
 @time_measure
 def fizz_result():
-    return ", ".join(fizzbuzz(1000000))
+    return b",".join(fizzbuzz(1000000))
 
 @time_measure
 def main():
     print(f"{len(fizz_result())=}")
+    # print(fizz_result())
 
 
 if __name__ == "__main__":
