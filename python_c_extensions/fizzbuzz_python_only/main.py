@@ -28,10 +28,7 @@ def fizz_result():
     return b",".join(fizzbuzz(1000000))
 
 @time_measure
-def main():
-    print(f"{len(fizz_result())=}")
-    # print(fizz_result())
-
-
-if __name__ == "__main__":
-    main()
+def run():
+    result = fizz_result()
+    print(f"{len(result)=}")
+    print("success")

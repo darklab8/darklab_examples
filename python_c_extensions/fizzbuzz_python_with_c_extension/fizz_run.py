@@ -1,7 +1,7 @@
-from _fizz.lib import fizz
-from _fizz import ffi
 import functools
 from time import time
+import sys
+from pathlib import Path
 
 def time_measure(func):
 
@@ -15,14 +15,21 @@ def time_measure(func):
     return wrapper
 
 @time_measure
-def main():
+def run():
+    sys.path.append(str(Path(__file__).parent))
+    try:
+        from _fizz.lib import fizz
+        from _fizz import ffi
+    except ModuleNotFoundError as err:
+        print(f"unable to load module, {err=}")
+
     result = fizz(1000000)
 
-    # print(f"{result=}")
-    print("success")
     print(f"{len(ffi.string(result))=}")
+    print("success")
+    
 
     del result
 
 if __name__=="__main__":
-    main()
+    run()
