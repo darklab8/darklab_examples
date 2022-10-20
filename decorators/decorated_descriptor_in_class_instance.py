@@ -4,8 +4,14 @@ class PropertyName:
         self.public_name = name
         self.private_name = '_' + name
 
-    def __init__(self, default):
-        self.default = default
+    def __init__(self, default=None):
+        self._default = default
+
+    @property
+    def default(self):
+        if self._default is None:
+            raise AttributeError(f"default value is not defined for {self.public_name=}")
+        return self._default
 
     def __get__(self, obj, objtype=None):
         try:
@@ -40,6 +46,7 @@ class DecriptorDecorator:
 class Person:
     name = DecriptorDecorator(PropertyName(default="abc"))
     family = PropertyName(default="yay")
+    color = DecriptorDecorator(PropertyName("blue"))
 
     def __init__(self, _attr = "dev"):
         self.attr = _attr
@@ -56,5 +63,5 @@ if __name__=="__main__":
     Martin.name = "1234"
     
 
-    print(f"{Bob.name=},{Bob.family=}")
-    print(f"{Martin.name=},{Martin.family=}")
+    print(f"{Bob.name=},{Bob.family=},{Bob.color=}")
+    print(f"{Martin.name=},{Martin.family=},{Martin.color=}")
