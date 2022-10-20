@@ -1,15 +1,19 @@
+class Undefined:
+    pass
+undefined = Undefined()
+
 class PropertyName:
 
     def __set_name__(self, owner, name):
         self.public_name = name
         self.private_name = '_' + name
 
-    def __init__(self, default=None):
+    def __init__(self, default=undefined):
         self._default = default
 
     @property
     def default(self):
-        if self._default is None:
+        if self._default is undefined:
             raise AttributeError(f"default value is not defined for {self.public_name=}")
         return self._default
 
