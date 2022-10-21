@@ -5,6 +5,9 @@ undefined = Undefined()
 class PropertyName:
 
     def __set_name__(self, owner, name):
+        self.set_name(name)
+
+    def set_name(self, name):
         self.public_name = name
         self.private_name = '_' + name
 
@@ -30,10 +33,9 @@ class PropertyName:
 
 class DecriptorDecorator:
     def __set_name__(self, owner, name):
-        setattr(self.descriptor,"public_name", name)
-        setattr(self.descriptor,"private_name", f"_{name}")
+        self.descriptor.set_name(name)
 
-    def __init__(self, descriptor):
+    def __init__(self, descriptor: PropertyName):
         self.descriptor = descriptor
 
     def __get__(self, obj, objtype):
@@ -51,9 +53,6 @@ class Person:
     name = DecriptorDecorator(PropertyName(default="abc"))
     family = PropertyName(default="yay")
     color = DecriptorDecorator(PropertyName("blue"))
-
-    def __init__(self, _attr = "dev"):
-        self.attr = _attr
 
 if __name__=="__main__":
     Bob = Person()
