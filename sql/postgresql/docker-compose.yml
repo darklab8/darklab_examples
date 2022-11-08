@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  omnbidb_target_xD:
+    image: postgres:12-buster
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: postgres
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data/
