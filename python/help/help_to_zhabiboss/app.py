@@ -60,7 +60,7 @@ class GameWindow:
         pygame.display.update()
         self._clock.tick(self._fps)
 
-    def pain_background(self, color: Color):
+    def paint_background(self, color: Color):
         self._screen.fill(color.as_tuple)
 
     def exit(self):
@@ -127,9 +127,9 @@ class GameSession:
 
         while True:
             if dead == False:
-                self.game_window.pain_background(Color.create_black())
+                self.game_window.paint_background(Color.create_black())
             else:
-                self.game_window.pain_background(Color.create_red())
+                self.game_window.paint_background(Color.create_red())
 
             self.game_window.draw_text(f"Score: {score}")
 
