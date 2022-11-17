@@ -116,7 +116,7 @@ class GameSession:
         )
         
     def play(self):
-
+        # TODO finish refactoring this function
         target = self.target_factory.create_at_center()
 
         lives = 5
