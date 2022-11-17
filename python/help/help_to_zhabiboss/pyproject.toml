@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "help-to-zhabiboss"
+version = "0.1.0"
+description = ""
+authors = ["dd84ai <dd84ai@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "help_to_zhabiboss"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pygame = "^2.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
