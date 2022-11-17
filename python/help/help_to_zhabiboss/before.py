@@ -1,3 +1,6 @@
+#
+# Author: Zhabiboss#6969(Discord)
+#
 
 import pygame
 import sys
