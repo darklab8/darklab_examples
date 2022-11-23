@@ -1,0 +1,1 @@
+pgadmin as restartable systemd service

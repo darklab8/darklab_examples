@@ -1,0 +1,6 @@
+#!/bin/sh
+sudo mkdir -vp /apps/pgadmin/data
+sudo chmod a=rwx -R /apps/pgadmin/data
+sudo ln $(pwd)/docker-compose.yml /apps/pgadmin/docker-compose.yml
+sudo ln $(pwd)/pgadmin.service /etc/systemd/system/pgadmin.service
+systemctl daemon-reload
