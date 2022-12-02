@@ -1,0 +1,27 @@
+
+
+x-services:
+  app_pip: &app
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+services:
+  redis:
+    <<: *app
+    command: redis-server /tmp/redis.conf
+    volumes:
+      - ./redis.conf:/tmp/redis.conf
+      # persistence of queue
+      - ./data:/code/data
+  worker:
+    <<: *app
+    command: celery -A app worker --concurrency=1
+  beat:
+    <<: *app
+    command: celery -A app beat
+  flower:
+    <<: *app
+    command: celery -A app flower
+    ports:
+      - 5555:5555

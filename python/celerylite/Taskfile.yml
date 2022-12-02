@@ -1,0 +1,13 @@
+version: '3'
+
+tasks:
+
+  build:
+    cmds:
+      - docker-compose build -- beat
+      - docker-compose build
+  run:
+    cmds:
+      - defer: docker-compose down
+      - task: build
+      - docker-compose up
