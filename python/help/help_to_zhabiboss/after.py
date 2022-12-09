@@ -105,6 +105,7 @@ class TargetFactory:
     def create_at_random(self) -> Target:
         return Target(game_window=self.game_window, position=Position(random.randint(0, self.resolution.width), random.randint(0, self.resolution.height)))
 
+
 class GameSession:
     def __init__(self):
 

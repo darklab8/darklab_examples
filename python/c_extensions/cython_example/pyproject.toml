@@ -1,16 +1,15 @@
 [tool.poetry]
-name = "help-to-zhabiboss"
+name = "cython-example"
 version = "0.1.0"
 description = ""
 authors = ["dd84ai <dd84ai@gmail.com>"]
-license = "MIT"
 readme = "README.md"
-packages = [{include = "help_to_zhabiboss"}]
+packages = [{include = "cython_example"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pygame = "^2.1.2"
-blinker = "^1.5"
+cython = "^0.29.32"
+pydantic = "^1.10.2"
 
 
 [build-system]
