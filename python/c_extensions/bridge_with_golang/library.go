@@ -1,7 +1,7 @@
 package main
 
 import (
-	"C"
+	"C" // https://pkg.go.dev/cmd/cgo
 	"encoding/json"
 	"log"
 )
