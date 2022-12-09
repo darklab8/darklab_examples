@@ -1,0 +1,10 @@
+version: '3'
+tasks:
+  build:
+    cmds:
+      - go build -buildmode=c-shared -o library.so library.go
+
+  run:
+    cmds:
+      - task: build
+      - ./main.py
